@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mui-shop-project/static/css/main.7acaea2f.css",
+    "main.js": "/mui-shop-project/static/js/main.1165056c.js",
+    "index.html": "/mui-shop-project/index.html",
+    "main.7acaea2f.css.map": "/mui-shop-project/static/css/main.7acaea2f.css.map",
+    "main.1165056c.js.map": "/mui-shop-project/static/js/main.1165056c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.1165056c.js"
+  ]
+}
