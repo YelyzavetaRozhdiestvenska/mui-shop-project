@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-import BasketList from './BasketList';
+import { Container } from '@mui/material';
+
+import Basket from './Basket';
+import Snack from './Snack';
+// import BasketList from './BasketList';
+import Header from './Header';
 import GoodsList from './GoodsList';
 import Search from './Search';
 
@@ -10,6 +15,8 @@ export const App = () => {
   const [order, setOrder] = useState([]);
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState(goods);
+  const [isCardOpen, setIsCardOpen] = useState(false);
+  const [isSnackOpen, setIsSnackOpen] = useState(false);
 
   const handleChange = e => {
     if (!e.target.value) {
@@ -57,6 +64,7 @@ export const App = () => {
         },
       ]);
     }
+    setIsSnackOpen(true);
   };
 
   const removeFromOrder = goodsItem => {
@@ -64,12 +72,23 @@ export const App = () => {
   };
 
   return (
-    <div className="App">
-      <div className="container">
+    <>
+      <Header handleCart={() => setIsCardOpen(true)} orderLen={order.length} />
+      <Container
+        sx={{
+          mt: '1rem',
+        }}
+      >
         <Search value={search} onChange={handleChange} />
         <GoodsList goods={products} setOrder={addToOrder} />
-        <BasketList order={order} setOrder={removeFromOrder} />
-      </div>
-    </div>
+      </Container>
+      <Basket
+        order={order}
+        removeFromOrder={removeFromOrder}
+        cartOpen={isCardOpen}
+        closeCard={() => setIsCardOpen(false)}
+      />
+      <Snack isOpen={isSnackOpen} handleClose={() => setIsSnackOpen(false)} />
+    </>
   );
 };

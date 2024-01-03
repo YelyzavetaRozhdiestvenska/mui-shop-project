@@ -23,7 +23,7 @@ const BasketList = props => {
         {order.reduce((acc, item) => {
           return acc + item.price * item.quantity;
         }, 0)}{' '}
-        рублей.
+        UAH.
       </li>
     </ul>
   );
